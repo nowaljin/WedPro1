@@ -18,6 +18,17 @@ public class Block : MonoBehaviour
         var v2 = target.up; 
         var dot = Vector3.Dot(v1, v2);
 
-        spriteRenderer.material.color = (dot>0)?Color.white:Color.black;
+        var col= (dot>0)?dot:0f;
+
+        if (dot > 0.99f)
+        {
+            spriteRenderer.material.color = new Color(col, 0, 0);
+        }
+        else
+        {
+            spriteRenderer.material.color = new Color(col, col, col);
+        }
+
+            
     }
 }
